@@ -74,12 +74,18 @@
     .signup a:hover, .options a:hover {
       text-decoration: underline;
     }
+    #error-message {
+      color: red;
+      text-align: center;
+      display: none;
+      margin-top: 10px;
+    }
   </style>
 </head>
 <body>
   <div class="login-container">
     <h2>Login</h2>
-    <form action="/login" method="post">
+    <form onsubmit="return validateLogin(event)">
       <input type="text" name="username" placeholder="Username" required />
       
       <div class="password-toggle">
@@ -93,6 +99,8 @@
       </div>
 
       <button type="submit">Login</button>
+
+      <p id="error-message">Invalid username or password</p>
     </form>
 
     <div class="signup">
@@ -104,6 +112,22 @@
     function togglePassword() {
       const password = document.getElementById("password");
       password.type = password.type === "password" ? "text" : "password";
+    }
+
+    function validateLogin(event) {
+      event.preventDefault();
+
+      const username = document.querySelector('input[name="username"]').value;
+      const password = document.querySelector('input[name="password"]').value;
+      const errorMessage = document.getElementById("error-message");
+
+      if (username === "admin" && password === "1234") {
+        errorMessage.style.display = "none";
+        alert("Login successful!");
+        // window.location.href = "/dashboard"; // redirect if needed
+      } else {
+        errorMessage.style.display = "block";
+      }
     }
   </script>
 </body>
