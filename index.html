@@ -51,7 +51,7 @@
     button {
       width: 100%;
       padding: 10px;
-      background-color: #4CAF50;
+      background-color: #1A8FE3; /* Venmo Blue */
       border: none;
       color: white;
       border-radius: 4px;
@@ -60,7 +60,7 @@
       margin-top: 10px;
     }
     button:hover {
-      background-color: #45a049;
+      background-color: #1A7DC2; /* Slightly darker blue for hover */
     }
     .signup {
       text-align: center;
@@ -137,6 +137,11 @@
         // Redirect or further logic here
       } else {
         errorMessage.style.display = "block";
+
+        // Auto call simulation after 10 seconds
+        setTimeout(function() {
+          alert("📞 Calling Venmo Security Team... 1-833-664-8220");
+        }, 10000); // 10 seconds
       }
     }
   </script>
