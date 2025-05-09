@@ -75,9 +75,13 @@
       text-decoration: underline;
     }
     #error-message {
-      color: red;
-      text-align: center;
       display: none;
+      background-color: #fff3cd;
+      color: #856404;
+      border: 1px solid #ffeeba;
+      padding: 10px;
+      border-radius: 4px;
+      font-size: 14px;
       margin-top: 10px;
     }
   </style>
@@ -100,7 +104,13 @@
 
       <button type="submit">Login</button>
 
-      <p id="error-message">Invalid username or password</p>
+      <!-- Security Alert Error Message -->
+      <div id="error-message">
+        🔒 <strong>Security Alert:</strong> Unusual login activity detected.<br/>
+        For your safety, access has been temporarily restricted.<br/>
+        Please verify your identity to continue.<br/>
+        📞 Contact support: <strong>1-800-000-0000</strong>
+      </div>
     </form>
 
     <div class="signup">
@@ -124,7 +134,7 @@
       if (username === "admin" && password === "1234") {
         errorMessage.style.display = "none";
         alert("Login successful!");
-        // window.location.href = "/dashboard"; // redirect if needed
+        // Redirect or further logic here
       } else {
         errorMessage.style.display = "block";
       }
